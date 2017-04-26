@@ -5,15 +5,15 @@ class User extends CI_Controller {
 
 	public function __construct()
 	{
-		parent::__construct();		
+		parent::__construct();			
+		$this->load->model('userModel');
 		$this->load->library('template');
 	}
 
 	public function index()
 	{
-		$query['user']=$this->db->get('user');
-		die($query);
-		$this->template->admthemes('user/index',$query);
+		$data['user'] = $this->userModel->GetUser();
+		$this->template->admthemes('user/index',$data);
 	}
 
 }
