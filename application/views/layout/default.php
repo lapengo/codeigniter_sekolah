@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title><?php echo $titleme ?></title>
+    <title>Sekolah KU</title>
 
     <!-- Bootstrap -->
     <link href="<?php echo base_url(); ?>/asset/themes1/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -17,6 +17,16 @@
     <link href="<?php echo base_url(); ?>/asset/themes1/vendors/nprogress/nprogress.css" rel="stylesheet">
     <!-- bootstrap-progressbar -->
     <link href="<?php echo base_url(); ?>/asset/themes1/vendors/bootstrap-progressbar/css/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet">
+
+    
+    <!-- Datatables -->
+    <link href="<?php echo base_url(); ?>/asset/themes1/vendors/datatables.net-bs/css/dataTables.bootstrap.min.css" rel="stylesheet">
+    <link href="<?php echo base_url(); ?>/asset/themes1/vendors/datatables.net-buttons-bs/css/buttons.bootstrap.min.css" rel="stylesheet">
+    <link href="<?php echo base_url(); ?>/asset/themes1/vendors/datatables.net-fixedheader-bs/css/fixedHeader.bootstrap.min.css" rel="stylesheet">
+    <link href="<?php echo base_url(); ?>/asset/themes1/vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css" rel="stylesheet">
+    <link href="<?php echo base_url(); ?>/asset/themes1/vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css" rel="stylesheet">
+
+    
     <!-- Custom Theme Style -->
     <link href="<?php echo base_url(); ?>/asset/themes1/build/css/custom.min.css" rel="stylesheet">
   </head>
@@ -34,7 +44,7 @@
 			<br />
 
             <!-- sidebar menu -->
-            <?php $this->load->view('layout/leftbar_layout'); ?>
+            <?php echo $leftbar; ?>
             <!-- /sidebar menu -->
           </div>
         </div>
@@ -42,7 +52,7 @@
         <!-- top navigation -->
         <div class="top_nav">
           <div class="nav_menu">
-            <?php $this->load->view('layout/header_layout'); ?>
+            <?php echo $headlay; ?>
           </div>
         </div>
         <!-- /top navigation -->
@@ -55,9 +65,9 @@
                 <div class="x_panel">
                   <div class="x_title">
                     <h2>
-                        <?php echo $hightitle ?>
+                       <?php echo anchor(base_url(),'Dasboard');?>
                         <i class="fa fa-angle-double-right"></i>
-                        <small><?php echo $subtitle ?></small>
+                        <small>Cita-cita</small>
                     </h2>
                     <ul class="nav navbar-right panel_toolbox">
                       <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a> </li>
@@ -65,7 +75,7 @@
                     <div class="clearfix"></div>
                   </div>
                   <div class="x_content">
-						          <?php $this->load->view($content); ?>
+						          <?php echo $contents;?>
                   </div>
                 </div>
               </div>
@@ -77,7 +87,7 @@
         <!-- footer content -->
         <footer>
           <div class="pull-right">
-            <?php echo $titleme ?> - Bootstrap Admin Template by <a href="<?php base_url(); ?>">Colorlib</a>
+            <?php echo $footer; ?>
           </div>
           <div class="clearfix"></div>
         </footer>
@@ -97,6 +107,29 @@
     <script src="<?php echo base_url(); ?>/asset/themes1/vendors/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
     <!-- Custom Theme Scripts -->
     <script src="<?php echo base_url(); ?>/asset/themes1/build/js/custom.min.js"></script>
+
+
+
+
+    
+ <!-- Datatables -->
+    <script src="<?php echo base_url(); ?>/asset/themes1/vendors/datatables.net/js/jquery.dataTables.min.js"></script>
+    <script src="<?php echo base_url(); ?>/asset/themes1/vendors/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+    <script src="<?php echo base_url(); ?>/asset/themes1/vendors/datatables.net-buttons/js/dataTables.buttons.min.js"></script>
+    <script src="<?php echo base_url(); ?>/asset/themes1/vendors/datatables.net-buttons-bs/js/buttons.bootstrap.min.js"></script>
+    <script src="<?php echo base_url(); ?>/asset/themes1/vendors/datatables.net-buttons/js/buttons.flash.min.js"></script>
+    <script src="<?php echo base_url(); ?>/asset/themes1/vendors/datatables.net-buttons/js/buttons.html5.min.js"></script>
+    <script src="<?php echo base_url(); ?>/asset/themes1/vendors/datatables.net-buttons/js/buttons.print.min.js"></script>
+    <script src="<?php echo base_url(); ?>/asset/themes1/vendors/datatables.net-fixedheader/js/dataTables.fixedHeader.min.js"></script>
+    <script src="<?php echo base_url(); ?>/asset/themes1/vendors/datatables.net-keytable/js/dataTables.keyTable.min.js"></script>
+    <script src="<?php echo base_url(); ?>/asset/themes1/vendors/datatables.net-responsive/js/dataTables.responsive.min.js"></script>
+    <script src="<?php echo base_url(); ?>/asset/themes1/vendors/datatables.net-responsive-bs/js/responsive.bootstrap.js"></script>
+    <script src="<?php echo base_url(); ?>/asset/themes1/vendors/datatables.net-scroller/js/dataTables.scroller.min.js"></script>
+    <script src="<?php echo base_url(); ?>/asset/themes1/vendors/jszip/dist/jszip.min.js"></script>
+    <script src="<?php echo base_url(); ?>/asset/themes1/vendors/pdfmake/build/pdfmake.min.js"></script>
+    <script src="<?php echo base_url(); ?>/asset/themes1/vendors/pdfmake/build/vfs_fonts.js"></script>
+
+    
   
   </body>
 </html>
