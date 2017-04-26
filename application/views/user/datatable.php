@@ -1,3 +1,5 @@
+<!-- ini belum bisa dipakai -->
+
 <?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 <br>
 <p>

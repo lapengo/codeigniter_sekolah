@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Sekolah KU</title>
+    <title>Sekolah KU - <?php echo $title; ?></title>
 
     <!-- Bootstrap -->
     <link href="<?php echo base_url(); ?>/asset/themes1/vendors/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -26,7 +26,8 @@
     <link href="<?php echo base_url(); ?>/asset/themes1/vendors/datatables.net-responsive-bs/css/responsive.bootstrap.min.css" rel="stylesheet">
     <link href="<?php echo base_url(); ?>/asset/themes1/vendors/datatables.net-scroller-bs/css/scroller.bootstrap.min.css" rel="stylesheet">
 
-    
+     <!-- jQuery -->
+    <script src="<?php echo base_url(); ?>/asset/themes1/vendors/jquery/dist/jquery.min.js"></script>
     <!-- Custom Theme Style -->
     <link href="<?php echo base_url(); ?>/asset/themes1/build/css/custom.min.css" rel="stylesheet">
   </head>
@@ -67,7 +68,7 @@
                     <h2>
                        <?php echo anchor(base_url(),'Dasboard');?>
                         <i class="fa fa-angle-double-right"></i>
-                        <small>Cita-cita</small>
+                        <small><?php echo $title; ?></small>
                     </h2>
                     <ul class="nav navbar-right panel_toolbox">
                       <li><a class="collapse-link"><i class="fa fa-chevron-up"></i></a> </li>
@@ -95,8 +96,7 @@
       </div>
     </div>
 
-    <!-- jQuery -->
-    <script src="<?php echo base_url(); ?>/asset/themes1/vendors/jquery/dist/jquery.min.js"></script>
+   
     <!-- Bootstrap -->
     <script src="<?php echo base_url(); ?>/asset/themes1/vendors/bootstrap/dist/js/bootstrap.min.js"></script>
     <!-- FastClick -->
@@ -107,10 +107,7 @@
     <script src="<?php echo base_url(); ?>/asset/themes1/vendors/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
     <!-- Custom Theme Scripts -->
     <script src="<?php echo base_url(); ?>/asset/themes1/build/js/custom.min.js"></script>
-
-
-
-
+    
     
  <!-- Datatables -->
     <script src="<?php echo base_url(); ?>/asset/themes1/vendors/datatables.net/js/jquery.dataTables.min.js"></script>

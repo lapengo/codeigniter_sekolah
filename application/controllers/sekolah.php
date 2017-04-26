@@ -10,12 +10,9 @@ class Sekolah extends CI_Controller {
 	}
 
 	public function index()
-	{
-		// $isi= array(
-		// 			  title => "Contoh penggunaan template pada Codeigniter",
-		//               cucumberhead => "Home",
-		//             );
-		$this->template->admthemes('apa');
+	{		
+		$data['title'] = "";
+		$this->template->admthemes('apa',$data);
 	}
 
 }
