@@ -7,13 +7,13 @@ class User extends CI_Controller {
 	{
 		parent::__construct();		
 		$this->load->library('template');
-		$this->load->model('userModel');
 	}
 
 	public function index()
 	{
-		$data['dataall']=$this->userModel->get_all();
-		$this->template->admthemes('user/index',$data);
+		$query['user']=$this->db->get('user');
+		die($query);
+		$this->template->admthemes('user/index',$query);
 	}
 
 }
