@@ -9,6 +9,7 @@ class Level extends MY_Controller {
 		$this->load->library('template');
 	}
 
+//  menampilkan data
 	public function index()
 	{
 		$data['title'] = "Level Admin";
@@ -16,6 +17,7 @@ class Level extends MY_Controller {
 		$this->template->admthemes('level/index',$data);
 	}
 
+// untuk menuju ke form create atau tambah level
 	public function create()
 	{
 		$data['title'] = "Level Admin";
@@ -24,22 +26,24 @@ class Level extends MY_Controller {
 		$this->template->admthemes('level/formCreate',$data);
 	}
 
+// untuk melakukan penambahan atau add data ke database
 	public function insert()
 	{
-		$level = $this->input->post('level');
+		$level = $this->input->post('level'); //mengambil inputan dari form
 
 		$data = array(
-			'name' => $level,
+			'name' => $level, //mendeklarasikan antara form dan field dari table
 		);
 
-		if ($this->level->insert($data)) {
-	        $this->session->set_flashdata('success', '<strong>Success</strong>, Data user berhasil disimpan.');
+		if ($this->level->insert($data)) { // melakukan pengecekan dan juga penyimpanan data
+	        $this->session->set_flashdata('success', '<strong>Success</strong>, Data user berhasil disimpan.'); //jika berhasil maka muncul pesan
 	    } else {
-	        $this->session->set_flashdata('error', '<strong>Error</strong>, Data user gagal disimpan.');
+	        $this->session->set_flashdata('error', '<strong>Error</strong>, Data user gagal disimpan.'); //jika gagal muncul pesan
 	    }
 	    redirect('level');
 	}
 
+// untuk melakukan penghapusan data
 	public function delete($id = null)
 	{
 		$level = $this->level->where('idlevel', $id)->get();
@@ -57,6 +61,7 @@ class Level extends MY_Controller {
 		redirect('level');
 	}
 
+// untuk menuju ke form edit
 	public function edit($id = null)
 	{
 		$data['title'] = "Edit Level Admin";
@@ -65,6 +70,7 @@ class Level extends MY_Controller {
 		$this->template->admthemes('level/formEdit',$data);
 	}
 
+// untuk memproses perubahan yang di simpan atau update data
   public function update()
   {
 		$id = $this->input->post('id');
