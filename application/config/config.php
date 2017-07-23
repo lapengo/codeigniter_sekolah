@@ -24,11 +24,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |
 */
 
-// $http = 'http' . ((isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == 'on') ? 's' : '') . '://';
-// $newurl = str_replace("index.php","", $_SERVER['SCRIPT_NAME']);
-// $config['base_url']    = "$http" . $_SERVER['SERVER_NAME'] . "" . $newurl;
+$http = 'http' . ((isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == 'on') ? 's' : '') . '://';
+$newurl = str_replace("index.php","", $_SERVER['SCRIPT_NAME']);
+$config['base_url']    = "$http" . $_SERVER['SERVER_NAME'] . "" . $newurl;
 
- $config['base_url'] = 'http://localhost:8080/codeigniter_sekolah/';
+ // $config['base_url'] = 'http://localhost/codeigniter_sekolah/';
 
 /*
 |--------------------------------------------------------------------------
@@ -82,7 +82,7 @@ $config['url_suffix'] = '';
 | than english.
 |
 */
-$config['language']	= 'english';
+$config['language']	= 'bahasa_indonesia';
 
 /*
 |--------------------------------------------------------------------------
@@ -164,7 +164,7 @@ $config['composer_autoload'] = FALSE;
 | DO NOT CHANGE THIS UNLESS YOU FULLY UNDERSTAND THE REPERCUSSIONS!!
 |
 */
-$config['permitted_uri_chars'] = 'a-z 0-9~%.:_\-';
+$config['permitted_uri_chars'] = 'a-z 0-9~%.:_\-@=';
 
 /*
 |--------------------------------------------------------------------------

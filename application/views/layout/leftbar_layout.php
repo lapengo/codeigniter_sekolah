@@ -7,8 +7,8 @@
 
       <li><a><i class="fa fa-users"></i> User Manajemen <span class="fa fa-chevron-down"></span></a>
         <ul class="nav child_menu">
-          <li><a href="#">Level User</a></li>
-          <li><a href="#">Data User</a></li>
+          <li><?= anchor("level","Level User") ?></li>
+          <li><?= anchor("dataadmin","Data Admin") ?></li>
         </ul>
       </li>
 

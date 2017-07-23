@@ -4,27 +4,25 @@
     $warning = $this->session->flashdata('warning');
 
     if ($error) {
-        $message_status = 'message-error';
+        $message_status = 'alert-error';
         $message = $error;
     }
 
     if ($warning) {
-        $message_status = 'message-warning';
+        $message_status = 'alert-warning';
         $message = $warning;
     }
 
     if ($success) {
-        $message_status = 'message-success';
+        $message_status = 'alert-success';
         $message = $success;
     }
 ?>
 
 <?php if ($success || $warning || $error): ?>
-    <div class="row">
-        <div class="col-10">
-            <div class="message-box <?= $message_status ?>">
+  <div class="alert <?= $message_status; ?> alert-dismissible fade in" role="alert">
+     <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span>
+     </button>
                 <?= $message ?>
-            </div>
-        </div>
-    </div>
+  </div>
 <?php endif ?>
