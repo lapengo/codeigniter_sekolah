@@ -47,9 +47,8 @@
           $link= '<div class="btn btn-default btn-xs"><i class="fa fa-clock-o"></i></div>';
         }
       ?>
-              <td>
+              <td align="center">
                 <?= $link; ?>
-                <?= anchor("admdel/$iduser", '<i class="fa fa-remove"></i>', array('class' => 'btn btn-danger btn-xs')); ?>
               </td>
             </tr>
        <?php endforeach ?>

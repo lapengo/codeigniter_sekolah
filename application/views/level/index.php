@@ -3,7 +3,6 @@
 
 <!-- Flash message -->
 <?php $this->load->view('_partial/flash_message') ?>
-
 <p>
     <?php echo anchor('level/create', '<i class="glyphicon glyphicon-plus"> <b>Tambah Data</b></i>', array('class' => 'btn btn-primary btn-sm')); ?>
 </p>

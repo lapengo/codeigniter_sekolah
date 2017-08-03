@@ -111,17 +111,22 @@ class User extends MY_Controller {
 
 		$user = $this->user->where('email', $email)->get();
 
-		if (!$user) 
+		if (!$user) {
 			// die('Mail is not exists');
             $this->session->set_flashdata('error', '<strong>EMail</strong> is not exists.');
-		if ($user->token !== $token) 
+        }
+		else if ($user->token !== $token) {
 			// die('Toket is not match');
             $this->session->set_flashdata('error', '<strong>Token</strong> is not match.');
-
-		$a= $this->user->where('iduser', $user->iduser)->update(array('status'=>'active'));
-		if($a){
-			redirect('dataadmin');
+        }
+        else if ($user->token == "invalite") {
+			// die('Toket is not match');
+            $this->session->set_flashdata('error', 'Your Token is expire');
+        }
+        else{
+			$a= $this->user->where('iduser', $user->iduser)->update(array('status'=>'active', 'token'=>'invalite'));
 		}
+		redirect('dataadmin');
 
 	}
 

@@ -30,17 +30,19 @@
       <div class="login_wrapper">
         <div class="animate form login_form">
           <section class="login_content">
-            <form action="<?= $action ?>">
+            <!-- Flash message -->
+            <?php $this->load->view('_partial/flash_message') ?>
+            <form action="<?= $action ?>" method="post">
               <h1>Login Form</h1>
-              <div>
-                <input type="text" class="form-control" name="email" placeholder="Email" />
+              <div style="clear: both;">
+                <input type="text" class="form-control login" name="email" placeholder="Email" />
                 <?= form_error('email', '<span id="helpBlock2" class="help-block label label-danger">', '</span>'); ?>
               </div>
-              <div>
-                <input type="password" class="form-control" name="pws" placeholder="Password" />
+              <div style="clear: both;">
+                <input type="password" class="form-control login" name="pws" placeholder="Password" />
                 <?= form_error('pws', '<span id="helpBlock2" class="help-block label label-danger">', '</span>'); ?>
               </div>
-              <div>
+              <div style="clear: both;">
               	<input type="submit" class="btn btn-default submit" value="Log in">
                 <a class="reset_pass" href="#">Lost your password?</a>
               </div>

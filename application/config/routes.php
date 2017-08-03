@@ -53,16 +53,16 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 //$route['user'] = 'user';
 
 
-$route['dataadmin'] 	= 'user/index';
-$route['admincr']  		= 'user/create';
-$route['admins'] 		= 'user/insert';
-$route['verify/(:any)/(:any)'] 		= 'user/verify/$1/$2';
-$route['admdel/(:any)'] 			= 'user/delete/$1';
-$route['admupd/(:any)/(:any)'] 		= 'user/update/$1/$2';
+$route['dataadmin'] 	             = 'user/index';
+$route['admincr']  		             = 'user/create';
+$route['admins'] 		               = 'user/insert';
+$route['verify/(:any)/(:any)'] 		 = 'user/verify/$1/$2';
+$route['admdel/(:any)'] 			     = 'user/delete/$1';
+$route['admupd/(:any)/(:any)'] 		 = 'user/update/$1/$2';
 
 
-$route['login'] = 'AuthController/Loginadm';
-$route['cekloginadm/(:any)/(:any)'] 		= 'AuthController/cekloginadm/$1/$2';
+$route['login'] 					          = 'Auth/Loginadm';
+$route['cekloginadm/(:any)/(:any)'] = 'Auth/cekloginadm/$1/$2';
 
 
 $route['default_controller'] = 'level';
