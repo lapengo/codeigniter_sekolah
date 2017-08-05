@@ -53,7 +53,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 //$route['user'] = 'user';
 
 
+$route['dataadmin'] 	             = 'user/index';
+$route['admincr']  		             = 'user/create';
+$route['admins'] 		               = 'user/insert';
+$route['verify/(:any)/(:any)'] 		 = 'auth/verify/$1/$2';
+$route['admdel/(:any)'] 			     = 'user/delete/$1';
+$route['admupd/(:any)/(:any)'] 		 = 'user/update/$1/$2';
 
-$route['default_controller'] = 'user';
+
+$route['login'] 					          = 'Auth/Loginadm';
+
+
+
+$route['default_controller'] = 'level';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;

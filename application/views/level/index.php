@@ -1,24 +1,8 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
-<p>
+
 <!-- Flash message -->
-<?php if ($this->session->flashdata('success')): ?>
-<div class="alert alert-success alert-dismissible fade in" role="alert">
-   <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span>
-   </button>
-      <?php $this->load->view('_partial/flash_message') ?>
-</div>
-<?php endif; ?>
-<?php if ($this->session->flashdata('warning')): ?>
-<div class="alert alert-warning alert-dismissible fade in" role="alert">
-   <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span>
-   </button>
-      <?php $this->load->view('_partial/flash_message') ?>
-</div>
-<?php endif; ?>
-
-</p>
-
+<?php $this->load->view('_partial/flash_message') ?>
 <p>
     <?php echo anchor('level/create', '<i class="glyphicon glyphicon-plus"> <b>Tambah Data</b></i>', array('class' => 'btn btn-primary btn-sm')); ?>
 </p>

@@ -24,11 +24,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |
 */
 
-// $http = 'http' . ((isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == 'on') ? 's' : '') . '://';
-// $newurl = str_replace("index.php","", $_SERVER['SCRIPT_NAME']);
-// $config['base_url']    = "$http" . $_SERVER['SERVER_NAME'] . "" . $newurl;
+$http = 'http' . ((isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == 'on') ? 's' : '') . '://';
+$newurl = str_replace("index.php","", $_SERVER['SCRIPT_NAME']);
+$config['base_url']    = "$http" . $_SERVER['SERVER_NAME'] . "" . $newurl;
 
- $config['base_url'] = 'http://localhost:8080/codeigniter_sekolah/';
+ // $config['base_url'] = 'http://localhost/codeigniter_sekolah/';
 
 /*
 |--------------------------------------------------------------------------
@@ -70,7 +70,7 @@ $config['uri_protocol']	= 'REQUEST_URI';
 |
 | https://codeigniter.com/user_guide/general/urls.html
 */
-$config['url_suffix'] = '';
+$config['url_suffix'] = '.asp';
 
 /*
 |--------------------------------------------------------------------------
@@ -82,7 +82,7 @@ $config['url_suffix'] = '';
 | than english.
 |
 */
-$config['language']	= 'english';
+$config['language']	= 'bahasa_indonesia';
 
 /*
 |--------------------------------------------------------------------------
@@ -164,7 +164,7 @@ $config['composer_autoload'] = FALSE;
 | DO NOT CHANGE THIS UNLESS YOU FULLY UNDERSTAND THE REPERCUSSIONS!!
 |
 */
-$config['permitted_uri_chars'] = 'a-z 0-9~%.:_\-';
+$config['permitted_uri_chars'] = 'a-z 0-9~%.:_\-@=';
 
 /*
 |--------------------------------------------------------------------------
@@ -438,7 +438,7 @@ $config['standardize_newlines'] = FALSE;
 |          for backwards compatibility purposes!
 |
 */
-$config['global_xss_filtering'] = FALSE;
+$config['global_xss_filtering'] = TRUE;
 
 /*
 |--------------------------------------------------------------------------
@@ -527,3 +527,14 @@ $config['rewrite_short_tags'] = FALSE;
 | Array:		array('10.0.1.200', '192.168.5.0/24')
 */
 $config['proxy_ips'] = '';
+
+// Autoload extended core class.
+function my_load($class)
+{
+    if (strpos($class, 'CI_') !== 0) {
+        if (is_readable(APPPATH . 'core/' . $class . '.php')) {
+            require_once(APPPATH . 'core/' . $class . '.php');
+        }
+    }
+}
+spl_autoload_register('my_load');

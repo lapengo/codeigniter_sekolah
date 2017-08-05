@@ -1,4 +1,6 @@
 <?php
+defined('BASEPATH') OR exit('No direct script access allowed');
+
 class MY_Model extends CI_Model
 {
     protected $table          = '';
@@ -91,7 +93,7 @@ class MY_Model extends CI_Model
 
     public function join($table, $type = 'left')
     {
-        $this->db->join($table, "$this->table.id_$table = $table.id_$table", $type);
+        $this->db->join($table, "$this->table.id$table = $table.id$table", $type);
         return $this;
     }
 

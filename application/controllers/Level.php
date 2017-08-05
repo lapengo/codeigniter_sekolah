@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Level extends MY_Controller {
+class Level extends Admin_Controller {
 
     public function __construct()
 	{
@@ -21,7 +21,7 @@ class Level extends MY_Controller {
 	public function create()
 	{
 		$data['title'] = "Level Admin";
-		$data['level'] = $this->level->getAll();
+		// $data['level'] = $this->level->getAll();
 		$data['action'] = "level/insert";
 		$this->template->admthemes('level/formCreate',$data);
 	}
@@ -73,7 +73,7 @@ class Level extends MY_Controller {
 // untuk memproses perubahan yang di simpan atau update data
   public function update()
   {
-		$id = $this->input->post('id');
+	$id = $this->input->post('id');
 
     $input = array(
 			'name' => $nama = $this->input->post('level')
