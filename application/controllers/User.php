@@ -10,7 +10,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	# Function Delete
 // ===================================================================
 
-class User extends MY_Controller {
+class User extends Admin_Controller {
 
     public function __construct()
 	{
@@ -36,10 +36,10 @@ class User extends MY_Controller {
 	{
 
 		if (!$_POST) {
-            $input = (object) $this->user->getDefaultValues();
-        } else {
-            $input = (object) $this->input->post(null, true);
-        }
+        $input = (object) $this->user->getDefaultValues();
+    } else {
+        $input = (object) $this->input->post(null, true);
+    }
 
 
 		$this->load->helper('string');
@@ -62,22 +62,22 @@ class User extends MY_Controller {
 				redirect('dataadmin');
         	}else {
             	$this->session->set_flashdata('error', 'Data user gagal disimpan.');
-        	} 
+        	}
 		}else{
 			$this->create();
 		}
 	}
 
 // ===================================================================
-	// metode pengiriman email jika data yang 
-	// di masukkan semuanya telah sukses 
+	// metode pengiriman email jika data yang
+	// di masukkan semuanya telah sukses
 	// lihat pada cek validasi untuk penggunaan function ini
 // ===================================================================
 
 	public function send_email_verification($email, $token)
 	{
 		$this->load->library('email');
-		
+
 		$email2 = base64_encode($email);
 		$mytoket = base64_encode($token);
 
@@ -85,7 +85,7 @@ class User extends MY_Controller {
 		$this->email->to($email);
 		// $this->email->cc('another@example.com');
 		// $this->email->bcc('and@another.com');
-		
+
 		$this->email->subject('Register Website Company Profile - Local');
 		$this->email->message("
 				Klik disini untuk konfirmasi pendaftaran
@@ -93,42 +93,10 @@ class User extends MY_Controller {
 			");
 		$this->email->set_mailtype('html');
 		$this->email->send();
-		
+
 		// echo $this->email->print_debugger();
 	}
 
-	// ===================================================================
-		// memeriksa masukan link dari email
-		// apakah email beserta token pada link sesuai dengan 
-		// email dan token yang ada di database
-		// jika sesuai maka sistem merubah status login dari pandding menjadi aktif
-	// ===================================================================
-
-	public function verify($email2, $mytoket)
-	{
-		$email = base64_decode($email2);
-		$token = base64_decode($mytoket);
-
-		$user = $this->user->where('email', $email)->get();
-
-		if (!$user) {
-			// die('Mail is not exists');
-            $this->session->set_flashdata('error', '<strong>EMail</strong> is not exists.');
-        }
-		else if ($user->token !== $token) {
-			// die('Toket is not match');
-            $this->session->set_flashdata('error', '<strong>Token</strong> is not match.');
-        }
-        else if ($user->token == "invalite") {
-			// die('Toket is not match');
-            $this->session->set_flashdata('error', 'Your Token is expire');
-        }
-        else{
-			$a= $this->user->where('iduser', $user->iduser)->update(array('status'=>'active', 'token'=>'invalite'));
-		}
-		redirect('dataadmin');
-
-	}
 
 	public function delete($id1 = null)
 	{

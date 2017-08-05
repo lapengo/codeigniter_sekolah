@@ -56,13 +56,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $route['dataadmin'] 	             = 'user/index';
 $route['admincr']  		             = 'user/create';
 $route['admins'] 		               = 'user/insert';
-$route['verify/(:any)/(:any)'] 		 = 'user/verify/$1/$2';
+$route['verify/(:any)/(:any)'] 		 = 'auth/verify/$1/$2';
 $route['admdel/(:any)'] 			     = 'user/delete/$1';
 $route['admupd/(:any)/(:any)'] 		 = 'user/update/$1/$2';
 
 
 $route['login'] 					          = 'Auth/Loginadm';
-$route['cekloginadm/(:any)/(:any)'] = 'Auth/cekloginadm/$1/$2';
+
 
 
 $route['default_controller'] = 'level';

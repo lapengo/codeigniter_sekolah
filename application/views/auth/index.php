@@ -20,6 +20,7 @@
 
     <!-- Custom Theme Style -->
     <link href="<?php echo base_url(); ?>/asset/themes1/build/css/custom.min.css" rel="stylesheet">
+
   </head>
 
   <body class="login">
@@ -35,11 +36,11 @@
             <form action="<?= $action ?>" method="post">
               <h1>Login Form</h1>
               <div style="clear: both;">
-                <input type="text" class="form-control login" name="email" placeholder="Email" />
+                <input type="text" class="form-control login" name="email" placeholder="Email" autofocus />
                 <?= form_error('email', '<span id="helpBlock2" class="help-block label label-danger">', '</span>'); ?>
               </div>
               <div style="clear: both;">
-                <input type="password" class="form-control login" name="pws" placeholder="Password" />
+                <input type="password" class="form-control login" name="pws" placeholder="Password" autofocus />
                 <?= form_error('pws', '<span id="helpBlock2" class="help-block label label-danger">', '</span>'); ?>
               </div>
               <div style="clear: both;">

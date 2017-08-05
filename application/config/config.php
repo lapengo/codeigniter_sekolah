@@ -70,7 +70,7 @@ $config['uri_protocol']	= 'REQUEST_URI';
 |
 | https://codeigniter.com/user_guide/general/urls.html
 */
-$config['url_suffix'] = '';
+$config['url_suffix'] = '.asp';
 
 /*
 |--------------------------------------------------------------------------
@@ -438,7 +438,7 @@ $config['standardize_newlines'] = FALSE;
 |          for backwards compatibility purposes!
 |
 */
-$config['global_xss_filtering'] = FALSE;
+$config['global_xss_filtering'] = TRUE;
 
 /*
 |--------------------------------------------------------------------------
@@ -527,3 +527,14 @@ $config['rewrite_short_tags'] = FALSE;
 | Array:		array('10.0.1.200', '192.168.5.0/24')
 */
 $config['proxy_ips'] = '';
+
+// Autoload extended core class.
+function my_load($class)
+{
+    if (strpos($class, 'CI_') !== 0) {
+        if (is_readable(APPPATH . 'core/' . $class . '.php')) {
+            require_once(APPPATH . 'core/' . $class . '.php');
+        }
+    }
+}
+spl_autoload_register('my_load');

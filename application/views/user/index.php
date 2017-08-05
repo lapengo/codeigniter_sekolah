@@ -1,6 +1,6 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
-
+<?= $this->session->userdata('email'); ?>
 <!-- Flash message -->
 <?php $this->load->view('_partial/flash_message') ?>
 
@@ -33,7 +33,7 @@
               <td><?= $row->email ?></td>
               <td><?= $row->joinDate ?></td>
 
-      <?php 
+      <?php
 
         $iduser= base64_encode($row->iduser);
         $status= base64_encode($row->status);
